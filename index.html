@@ -8,10 +8,6 @@
     <script type = "text/javascript">
         let s = 0;
 
-        let audio = new Audio('beep.mp3');
-        function tell() {
-            audio.play();
-        }
 
         function swap() {
             var x = document.getElementById("command");
@@ -42,7 +38,6 @@
                 s = 1;
             }
             setTimeout(function() {
-            tell();
             beep();
             loop();  
             }, rand);
