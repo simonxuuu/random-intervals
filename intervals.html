@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Intervals</title>
+    <link rel="stylesheet" href="style.css">
+    <script type = "text/javascript">
+        let s = 0;
+
+        let audio = new Audio('beep.mp3');
+        function tell() {
+            audio.play();
+        }
+
+        function swap() {
+            var x = document.getElementById("command");
+            var y = document.body.style;
+            console.log('call')
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.backgroundColor = "#23AD2E";
+            } else {
+                x.style.display = "none";
+                y.backgroundColor = "#FE4B4B";
+            }
+            }
+            
+
+        function beep() {
+            if (!document.hidden) {
+                console.log(document.hidden);
+            }
+            setTimeout(swap);
+            setTimeout(swap, 2500);
+
+        }
+        function loop() {
+            var rand = Math.round(Math.random() * (15000 - 500)) + 1000;
+            if (s === 0) {
+                rand = 0;
+                s = 1;
+            }
+            setTimeout(function() {
+            tell();
+            beep();
+            loop();  
+            }, rand);
+        }
+    </script>
+</head>
+<body onload = "loop()">
+    <div id = "command">
+        <h1>Go</h1>
+    </div>
+
+</body>
+</html>
